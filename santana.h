@@ -4,7 +4,7 @@
 
 #ifndef SANTANA_H
 #define SANTANA_H
-class Santana{
+class Santana {
   public:
     Santana(int x ,int y);
     int getX();

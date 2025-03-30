@@ -33,6 +33,8 @@ public:
   void enter();
   // Fab leaves location
   void vacate();
+  // Set the token at this location
+  void setToken(char t);
 };
 
 #endif /* CELL_H_ */

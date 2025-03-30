@@ -32,3 +32,7 @@ char Cell::display(){
 void Cell::enter(){}
 // Fab leaves location
 void Cell::vacate(){}
+// Set the token at this location
+void Cell::setToken(char t){
+    token = t;
+}
