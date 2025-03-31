@@ -55,13 +55,13 @@ int main() {
 
     while (true) {
         std::cout << "You're at (" << fab.getX() << ", " << fab.getY() << ") | Ammo: " << ammo <<  ")\n";
-        std::cout << "Move (w/a/s/d), h for help, m for map, q to quit: ";
+        std::cout << "Move (w/a/s/d), h for help, m for map, f to spray, q to quit: ";
         std::cin >> move;
         move = tolower(move);
 
         if (move == 'q') break;
         if (move == 'h') {
-            std::cout << "Goal: Find and spray Santana (#) before he gets you!\n";
+            std::cout << "Goal: Find and spray Stinky Santana (#) before he gets you!\n";
             std::cout << "Use WASD to move, 'f' to fire in your last direction.\n";
             std::cout << "'>' are ammo pickups. Avoid running into Santana.\n";
             continue;
@@ -100,7 +100,7 @@ int main() {
 
             // Check bounds
             if (tx < 0 || tx >= gridSize || ty < 0 || ty >= gridSize) {
-                std::cout << "Your shot flew off into the void.\n";
+                std::cout << "Your spraying nothing stinkface muahahaaha.\n";
                 ammo--;
                 continue;
             }
@@ -150,7 +150,7 @@ int main() {
 
         // Game over check
         if (x == sX && y == sY) {
-            std::cout << "You ran into Santana! Game over.\n";
+            std::cout << "You ran into Santana swamp fest! Game over.\n";
             break;
         }
     }
