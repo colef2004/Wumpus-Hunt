@@ -88,29 +88,34 @@ int main() {
                 continue;
             }
 
-            int tx = x, ty = y;
+            int tx = fab.getX();
+            int ty = fab.getY();
+
             if (lastMove == 'w') ty--;
             else if (lastMove == 's') ty++;
             else if (lastMove == 'a') tx--;
             else if (lastMove == 'd') tx++;
 
-            if (tx >= 0 && tx < gridSize && ty >= 0 && ty < gridSize) {
-                if (grid[ty][tx]->hasSantana()) {
-                    std::cout << "You hit Santana! You win!\n";
-                    break;
-                } else {
-                    std::cout << "You missed.\n";
-                    ammo--;
-                }
+            std::cout << "You fired at (" << tx << ", " << ty << ").\n";
+
+            // Check bounds
+            if (tx < 0 || tx >= gridSize || ty < 0 || ty >= gridSize) {
+                std::cout << "Your shot flew off into the void.\n";
+                ammo--;
+                continue;
+            }
+
+            // Check if Santana is there
+            if (grid[ty][tx]->hasSantana()) {
+                std::cout << "You hit Santana! You win!\n";
+                break;
             } else {
-                std::cout << "You shot into a wall.\n";
+                std::cout << "You missed.\n";
                 ammo--;
             }
 
             continue;
         }
-
-
 
         // Move Fab
         grid[y][x]->vacate();

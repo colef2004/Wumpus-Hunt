@@ -12,21 +12,24 @@ Cell::Cell(int x, int y, char type) {
 }
 // true if Santana is at this location
 bool Cell::hasSantana(){
-  return false;
+  return token == '#';
 }
 // true if ammo is at this location
 bool Cell::hasAmmo(){
-    return false;
+    return token == '>';
 }
 // remove the ammo at this location
-void Cell::removeAmmo(){}
+void Cell::removeAmmo() {
+    if (token == '>') token = '.';
+}
 // true if the perfume store is at this location
 bool Cell::hasStore(){
     return false;
 }
 // is this location occupied by something that the robot
 char Cell::display(){
-    return 'c';
+    if (hasFab) return '+';
+    return token;
 }
 // Fab enters location
 void Cell::enter(){}
